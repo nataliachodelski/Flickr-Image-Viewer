@@ -30,19 +30,22 @@ class ThumbnailCollectionView: UICollectionViewController
 {
     let myDataStore = ThumbnailData.sharedInstance
     let myDownloadHelper = DownloadHelper()
+    var userID : String = "77248535@N06"
+
     private let reuseIdentifier = "reusableCell"
     private let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     
     @IBOutlet var thisCollectionView: UICollectionView!
 
-
+    
     // MARK: - View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        myDataStore.setUsername(userID)
 
-        navigationItem.title = "flickr: X's public photos"
+        navigationItem.title = "\(myDataStore.getUsername())'s public photos"
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Black
         nav?.barTintColor = UIColor.blackColor()

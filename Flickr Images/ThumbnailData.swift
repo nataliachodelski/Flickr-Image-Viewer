@@ -19,7 +19,8 @@ class ThumbnailData: NSObject
     }
 
     private var thumbnailSet = [ImageObject]()
-    
+    private var userName : String = ""
+
     
     // MARK: Getter and Setter methods
 
@@ -47,6 +48,14 @@ class ThumbnailData: NSObject
         return thumbnailSet[index].title
     }
     
+    func getUsername() -> String {
+        return userName
+    }
+    
+    func setUsername(name: String) {
+        userName = name
+    }
+
     func getCountImageDataEntries() -> Int {
         return thumbnailSet.count
     }

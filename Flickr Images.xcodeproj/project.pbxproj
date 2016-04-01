@@ -79,14 +79,13 @@
 			isa = PBXGroup;
 			children = (
 				E1794F541CAE4EC90095AA17 /* Main.storyboard */,
+				E1794F591CAE4EC90095AA17 /* LaunchScreen.storyboard */,
 				E1794F501CAE4EC90095AA17 /* AppDelegate.swift */,
-				E135AFA61CAE50C900BDE1E6 /* ThumbnailCollectionView.swift */,
-				E1794F681CAE4FCB0095AA17 /* DownloadHelper.swift */,
+				E1794F571CAE4EC90095AA17 /* Assets.xcassets */,
+				E1794F5C1CAE4EC90095AA17 /* Info.plist */,
 				E19173D61CAF0C4500830F1D /* Model */,
 				E19173D51CAF0C3A00830F1D /* View */,
-				E1794F571CAE4EC90095AA17 /* Assets.xcassets */,
-				E1794F591CAE4EC90095AA17 /* LaunchScreen.storyboard */,
-				E1794F5C1CAE4EC90095AA17 /* Info.plist */,
+				E1FFA69A1CAF307900F61B52 /* Controller */,
 			);
 			path = "Flickr Images";
 			sourceTree = "<group>";
@@ -106,6 +105,15 @@
 				E1794F641CAE4FB60095AA17 /* ImageObject.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E1FFA69A1CAF307900F61B52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E135AFA61CAE50C900BDE1E6 /* ThumbnailCollectionView.swift */,
+				E1794F681CAE4FCB0095AA17 /* DownloadHelper.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		E44FC27AFCC96F18ECBF5D1B /* Frameworks */ = {
@@ -151,6 +159,7 @@
 				TargetAttributes = {
 					E1794F4C1CAE4EC90095AA17 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = X7Y2N6M5RS;
 					};
 				};
 			};
@@ -287,7 +296,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -333,7 +343,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -359,10 +370,13 @@
 			baseConfigurationReference = 028CDB90766EFEC92B982233 /* Pods-Flickr Images.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Flickr Images/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nataliachodelski.Flickr-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -371,10 +385,13 @@
 			baseConfigurationReference = 6226B45C45DA3940671138D5 /* Pods-Flickr Images.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Flickr Images/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nataliachodelski.Flickr-Images";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -14,9 +14,7 @@ let ReloadCollectionNotification = "ReloadCollection"
 public class DownloadHelper
 {
     let myDataStore = ThumbnailData.sharedInstance
-    
     var downloadedImagesCompleteArray : [Bool] = []
-    var userID : String = "11349317%40N02"
 
     func downloadMetadata(completion: (sucess: Bool) -> Void)
     {
@@ -38,7 +36,7 @@ public class DownloadHelper
     func fetchFlickrData(completion : (resultArray: [ImageObject]?) -> Void)
     {
         let apiKey : String = "bd572be0a9130ed85862e0ca053e99df"
-        let flickrPhotosAPIcall = "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=" + apiKey + "&user_id=" + userID + "&format=json&nojsoncallback=1"
+        let flickrPhotosAPIcall = "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=" + apiKey + "&user_id=" + myDataStore.getUsername() + "&format=json&nojsoncallback=1"
         
         let session = NSURLSession.sharedSession()
         let dataTask1 = session.dataTaskWithURL(NSURL(string: flickrPhotosAPIcall)!, completionHandler:  { (data, response, error) -> Void in
