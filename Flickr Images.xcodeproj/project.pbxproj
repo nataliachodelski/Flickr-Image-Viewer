@@ -10,7 +10,6 @@
 		7071FA72E0D31723982BF8C0 /* Pods_Flickr_Images.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8C298CF5AB4A217679F3F6 /* Pods_Flickr_Images.framework */; };
 		E135AFA71CAE50C900BDE1E6 /* ThumbnailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135AFA61CAE50C900BDE1E6 /* ThumbnailCollectionView.swift */; };
 		E1794F511CAE4EC90095AA17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1794F501CAE4EC90095AA17 /* AppDelegate.swift */; };
-		E1794F531CAE4EC90095AA17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1794F521CAE4EC90095AA17 /* ViewController.swift */; };
 		E1794F561CAE4EC90095AA17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1794F541CAE4EC90095AA17 /* Main.storyboard */; };
 		E1794F581CAE4EC90095AA17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1794F571CAE4EC90095AA17 /* Assets.xcassets */; };
 		E1794F5B1CAE4EC90095AA17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1794F591CAE4EC90095AA17 /* LaunchScreen.storyboard */; };
@@ -27,7 +26,6 @@
 		E135AFA61CAE50C900BDE1E6 /* ThumbnailCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionView.swift; sourceTree = "<group>"; };
 		E1794F4D1CAE4EC90095AA17 /* Flickr Images.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Images.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1794F501CAE4EC90095AA17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1794F521CAE4EC90095AA17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1794F551CAE4EC90095AA17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1794F571CAE4EC90095AA17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1794F5A1CAE4EC90095AA17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,17 +80,32 @@
 			children = (
 				E1794F541CAE4EC90095AA17 /* Main.storyboard */,
 				E1794F501CAE4EC90095AA17 /* AppDelegate.swift */,
-				E1794F521CAE4EC90095AA17 /* ViewController.swift */,
 				E135AFA61CAE50C900BDE1E6 /* ThumbnailCollectionView.swift */,
 				E1794F681CAE4FCB0095AA17 /* DownloadHelper.swift */,
-				E1794F621CAE4FA40095AA17 /* ThumbnailData.swift */,
-				E1794F641CAE4FB60095AA17 /* ImageObject.swift */,
-				E1794F661CAE4FC50095AA17 /* ImageCell.swift */,
+				E19173D61CAF0C4500830F1D /* Model */,
+				E19173D51CAF0C3A00830F1D /* View */,
 				E1794F571CAE4EC90095AA17 /* Assets.xcassets */,
 				E1794F591CAE4EC90095AA17 /* LaunchScreen.storyboard */,
 				E1794F5C1CAE4EC90095AA17 /* Info.plist */,
 			);
 			path = "Flickr Images";
+			sourceTree = "<group>";
+		};
+		E19173D51CAF0C3A00830F1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1794F661CAE4FC50095AA17 /* ImageCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E19173D61CAF0C4500830F1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1794F621CAE4FA40095AA17 /* ThumbnailData.swift */,
+				E1794F641CAE4FB60095AA17 /* ImageObject.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E44FC27AFCC96F18ECBF5D1B /* Frameworks */ = {
@@ -225,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1794F531CAE4EC90095AA17 /* ViewController.swift in Sources */,
 				E1794F691CAE4FCB0095AA17 /* DownloadHelper.swift in Sources */,
 				E1794F511CAE4EC90095AA17 /* AppDelegate.swift in Sources */,
 				E135AFA71CAE50C900BDE1E6 /* ThumbnailCollectionView.swift in Sources */,

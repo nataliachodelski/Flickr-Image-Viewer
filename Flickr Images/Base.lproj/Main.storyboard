@@ -51,6 +51,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7Lk-cP-Upw"/>
+                    <connections>
+                        <outlet property="thisCollectionView" destination="7cQ-NQ-RnP" id="5Cz-tu-XnU"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6QR-8e-N2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
