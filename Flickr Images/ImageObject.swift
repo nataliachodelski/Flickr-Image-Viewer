@@ -8,15 +8,12 @@
 
 import UIKit
 
-class ImageObject: NSObject
-{    
-    var title : String = ""
-    var username : String = ""
-    var imageAddress : String = ""
-    var thumbnail : UIImage?
+class ImageObject: NSObject {    
+    var title: String = ""
+    var imageAddress: String = ""
+    var thumbnail: UIImage?
     
-    init(name: String, username: String, address: String, thumb: UIImage?)
-    {
+    init(name: String, address: String, thumb: UIImage?) {
         super.init()
         self.title = name
         self.imageAddress = address

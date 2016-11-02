@@ -5,5 +5,6 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'Flickr Images' do
-pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'AlamofireImage', '~> 3.1'
 end
