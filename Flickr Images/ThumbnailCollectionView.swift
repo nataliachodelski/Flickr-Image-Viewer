@@ -15,24 +15,24 @@ class ThumbnailCollectionView: UICollectionViewController {
     let myDataStore = ThumbnailData.sharedInstance
     let myDownloadHelper = DownloadHelper()
     
-    private let reuseIdentifier = "reusableCell"
-    private let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-    @IBOutlet var thisCollectionView: UICollectionView!
+    fileprivate let reuseIdentifier = "reusableCell"
 
+    @IBOutlet var thisCollectionView: UICollectionView!
+    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = "Harryyy's public flickr photos"
         let nav = self.navigationController?.navigationBar
-        nav?.barStyle = UIBarStyle.Black
-        nav?.barTintColor = UIColor.blackColor()
-        nav?.tintColor = UIColor.blueColor()
-        nav?.translucent = false
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav?.barStyle = UIBarStyle.black
+        nav?.barTintColor = UIColor.black
+        nav?.tintColor = UIColor.blue
+        nav?.isTranslucent = false
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-       NSNotificationCenter.defaultCenter().addObserver(self,  selector: #selector(self.reloadCollection), name: "ReloadCollection", object: nil)
+        NotificationCenter.default.addObserver(self,  selector: #selector(self.reloadCollection), name: NSNotification.Name(rawValue: "ReloadCollection"), object: nil)
         
         // This method starts asynchronously downloading image data from flickr. Uses was_successful completion bool to initate thumbnail downloads only once all image metadata has been successfully retrieved.
         
@@ -49,22 +49,22 @@ class ThumbnailCollectionView: UICollectionViewController {
     
     
     // MARK: - Collection View Data Source Methods
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myDataStore.getCountImageDataEntries()
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ImageCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCell
         let index = indexPath.row
         
         // Configure the cell
-        cell.backgroundColor = UIColor.lightGrayColor()
+        cell.backgroundColor = UIColor.lightGray
         cell.imageView.image = myDataStore.getImage(index)
         return cell
     }
@@ -74,20 +74,23 @@ class ThumbnailCollectionView: UICollectionViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
         let thumbnail = myDataStore.getImage(index)
-        self.performSegueWithIdentifier("showDetail", sender: thumbnail)
+        let baseURL = myDataStore.getImage(index)
+        self.performSegue(withIdentifier: "showDetail", sender: thumbnail)
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            let destination: DetailViewController = segue.destinationViewController as! DetailViewController
-            destination.displayImage = sender as? UIImage
+            if let destinationVC: DetailViewController = segue.destination as! DetailViewController {
+                
+                
+                destinationVC.largerImage = sender as? UIImage
+            }
         }
     }
 }
@@ -95,9 +98,9 @@ class ThumbnailCollectionView: UICollectionViewController {
 
 extension ThumbnailCollectionView: UICollectionViewDelegateFlowLayout {
     // this method adds a nice border around each image
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let index = indexPath.row
         if let currentPhoto = myDataStore.getImage(index) {
             var size = currentPhoto.size
@@ -107,11 +110,12 @@ extension ThumbnailCollectionView: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 0, height: 0)
         }
     }
-
+    
     // this method adds padding around collection view edges to improve layout
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                               insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return sectionInsets
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+
     }
 }

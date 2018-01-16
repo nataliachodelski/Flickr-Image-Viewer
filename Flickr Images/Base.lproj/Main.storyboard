@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +13,7 @@
         <scene sceneID="bWM-Bz-kev">
             <objects>
                 <collectionViewController id="2e2-Ut-Y29" customClass="ThumbnailCollectionView" customModule="Flickr_Images" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="7cQ-NQ-RnP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7cQ-NQ-RnP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -27,23 +26,21 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusableCell" id="KmS-gF-gFf" customClass="ImageCell" customModule="Flickr_Images" customModuleProvider="target">
-                                <rect key="frame" x="12" y="0.0" width="297" height="230"/>
+                                <rect key="frame" x="11.5" y="0.0" width="297" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="297" height="230"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-UG-YOy">
-                                            <rect key="frame" x="15" y="8" width="267" height="205"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-UG-YOy">
+                                            <rect key="frame" x="15" y="13" width="267" height="205"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="GuZ-UG-YOy" firstAttribute="top" secondItem="KmS-gF-gFf" secondAttribute="topMargin" constant="17" id="Gy9-jR-Yza"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="GuZ-UG-YOy" secondAttribute="trailing" constant="22" id="QhG-xa-ala"/>
-                                    <constraint firstAttribute="bottom" secondItem="GuZ-UG-YOy" secondAttribute="bottom" id="d64-YW-d5H"/>
-                                    <constraint firstItem="GuZ-UG-YOy" firstAttribute="leading" secondItem="KmS-gF-gFf" secondAttribute="leading" id="wsM-fb-AFd"/>
+                                    <constraint firstItem="GuZ-UG-YOy" firstAttribute="centerX" secondItem="KmS-gF-gFf" secondAttribute="centerX" id="0bq-wv-Ucm"/>
+                                    <constraint firstItem="GuZ-UG-YOy" firstAttribute="centerY" secondItem="KmS-gF-gFf" secondAttribute="centerY" constant="0.5" id="4dS-p7-Kqq"/>
                                 </constraints>
                                 <size key="customSize" width="297" height="230"/>
                                 <connections>
@@ -85,11 +82,8 @@
                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="zhB-Uy-oUy" firstAttribute="top" relation="lessThanOrEqual" secondItem="dBC-kM-fdX" secondAttribute="bottom" constant="13" id="52g-Zw-qoH"/>
-                            <constraint firstItem="dBC-kM-fdX" firstAttribute="top" relation="lessThanOrEqual" secondItem="Zhm-tE-XIX" secondAttribute="bottom" constant="13" id="CJG-jF-er0"/>
-                            <constraint firstItem="dBC-kM-fdX" firstAttribute="leading" relation="lessThanOrEqual" secondItem="29r-yb-T6V" secondAttribute="leading" constant="13" id="Ya8-mY-aSB"/>
-                            <constraint firstItem="dBC-kM-fdX" firstAttribute="centerX" secondItem="29r-yb-T6V" secondAttribute="centerX" id="fN5-va-LwW"/>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dBC-kM-fdX" secondAttribute="trailing" constant="13" id="kI7-3A-EBa"/>
+                            <constraint firstItem="dBC-kM-fdX" firstAttribute="centerX" secondItem="29r-yb-T6V" secondAttribute="centerX" id="YXk-zn-P7T"/>
+                            <constraint firstItem="dBC-kM-fdX" firstAttribute="centerY" secondItem="29r-yb-T6V" secondAttribute="centerY" id="Ydg-Z7-MRS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -105,7 +99,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rM3-d7-qbT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMw-Xp-53B">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMw-Xp-53B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

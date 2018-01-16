@@ -17,18 +17,22 @@ class ThumbnailData: NSObject {
         return Singleton.instance
     }
 
-    private var thumbnailSet = [ImageObject]()
-    private var userName: String = ""
+    fileprivate var thumbnailSet = [ImageObject]()
+    fileprivate var userName: String = ""
 
     // MARK: Getter and Setter methods
 
-    func setThumbnailData(imageData: [ImageObject]) {
+    func setThumbnailData(_ imageData: [ImageObject]) {
         thumbnailSet = imageData
     }
     
-    func setImage(index: Int, image: UIImage?) {
+    func setImage(_ index: Int, image: UIImage?) {
         thumbnailSet[index].thumbnail = image
     }
+    
+//    func loadImage(_ index: Int, @escaping completion (success: Bool) -> Void) {
+//    let baseURL = thumbnailSet[index].baseImageAddress
+//    }
     
     func getAllItems() -> [ImageObject] {
         return thumbnailSet
@@ -48,15 +52,15 @@ class ThumbnailData: NSObject {
         return count
     }
     
-    func getImageUrl(index: Int) -> String {
-        return thumbnailSet[index].imageAddress
+    func getImageUrl(_ index: Int) -> String {
+        return thumbnailSet[index].baseImageAddress
     }
     
-    func getImage(index: Int) -> UIImage? {
+    func getImage(_ index: Int) -> UIImage? {
         return thumbnailSet[index].thumbnail
     }
     
-    func getImageName(index: Int) -> String {
+    func getImageName(_ index: Int) -> String {
         return thumbnailSet[index].title
     }
 }
