@@ -1,0 +1,15 @@
+
+
+DerivedData*
+
+.DS_Store
+
+*.xcbkptlist
+
+*.xcuserstate
+
+*.xcscheme
+
+*.plist
+
+Pods*

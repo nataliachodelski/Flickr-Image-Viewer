@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class ThumbnailData: NSObject
-{
+class ThumbnailData: NSObject {
     class var sharedInstance: ThumbnailData {
         struct Singleton {
             static let instance = ThumbnailData()
@@ -18,56 +17,50 @@ class ThumbnailData: NSObject
         return Singleton.instance
     }
 
-    private var thumbnailSet = [ImageObject]()
-    private var userName : String = ""
+    fileprivate var thumbnailSet = [ImageObject]()
+    fileprivate var userName: String = ""
 
-    
     // MARK: Getter and Setter methods
 
-    func setThumbnailData(imageData: [ImageObject]) {
+    func setThumbnailData(_ imageData: [ImageObject]) {
         thumbnailSet = imageData
     }
     
-    func getImage(index: Int) -> UIImage? {
-        return thumbnailSet[index].thumbnail
-    }
-    
-    func setImage(index: Int, image: UIImage?) {
+    func setImage(_ index: Int, image: UIImage?) {
         thumbnailSet[index].thumbnail = image
     }
+    
+//    func loadImage(_ index: Int, @escaping completion (success: Bool) -> Void) {
+//    let baseURL = thumbnailSet[index].baseImageAddress
+//    }
     
     func getAllItems() -> [ImageObject] {
         return thumbnailSet
     }
     
-    func getImageUrl(index: Int) -> String {
-        return thumbnailSet[index].imageAddress
-    }
-    
-    func getImageName(index: Int) -> String {
-        return thumbnailSet[index].title
-    }
-    
-    func getUsername() -> String {
-        return userName
-    }
-    
-    func setUsername(name: String) {
-        userName = name
-    }
-
     func getCountImageDataEntries() -> Int {
         return thumbnailSet.count
     }
     
     func getCountImages() -> Int {
         var count = 0
-        for item in thumbnailSet
-        {
-            if item.thumbnail != nil {
+        for item in thumbnailSet  {
+            if (item.thumbnail != nil) {
                 count += 1
             }
         }
         return count
+    }
+    
+    func getImageUrl(_ index: Int) -> String {
+        return thumbnailSet[index].baseImageAddress
+    }
+    
+    func getImage(_ index: Int) -> UIImage? {
+        return thumbnailSet[index].thumbnail
+    }
+    
+    func getImageName(_ index: Int) -> String {
+        return thumbnailSet[index].title
     }
 }
